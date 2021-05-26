@@ -7,28 +7,22 @@ html { box-sizing: border-box; }
     --seda: #797676;
 }
 /*
-hlavicka
-    bckg image shadow
-    cara nad autorem
-
-menu, footer OK
-
-cara pod nadpisem
-
-first - v co - bold
-
+nejužší verze
+==============================
+- všechno je pod sebou v jedné úzké nudli
+- v menu jsou položky pod sebou, menu samotné je nad obsahem
+- v galerii jsou všechny obrázky pod sebou
+- popisky k obrázkům jsou vždy pod obrázkem (k těm v textu i k těm v galerii)
 */
 
 body {
-    max-width: 600px;
     font-family: 'Merriweather', serif;
     display: flex;
     flex-direction: column;
     margin: auto;
     background-color: black;
 }
-main {
-    max-width: 500px;
+div {
     margin: auto;
     background-color: var(--pozadi);
 }
@@ -42,15 +36,22 @@ h1 {
     color: var(--pozadi);
     text-align: center;
     background-image: 
-        linear-gradient(hsla(0 0% 0% / 0.2), hsla(0 0% 0% / 0.5)),
+        linear-gradient(hsla(240 70% 30% / 0.2),hsla(40 50% 20% / 0.5)),
         url(images/island-hlavicka.jpg);
     background-size: cover;
     padding: 2rem;
 }
 
+.hlavicka hr {
+    color: var(--pozadi);
+    opacity: .7;
+    margin: 2rem auto 1rem ;
+    border-width: 1px;
+}
+
 .autor {
-    color: var(--seda); 
-    opacity:1; /*pruhlednost*/
+    color: var(--pozadi); 
+    opacity:.7; /*pruhlednost*/
     font-style: italic;
 }
 
@@ -74,7 +75,15 @@ li {
 }
 
 h2 {
-    padding:2rem 0 0.5rem 2rem ;
+    padding: 2rem 0 0 2rem ;
+}
+
+hr {
+    color: var(--decor);
+    width: 15%;
+    margin: 2rem 0;
+    border-style: solid;
+    border-width: 2px;
 }
 
 p {
@@ -112,7 +121,7 @@ h3 {
 .footer {
     font-size: 0.8rem;
     color: var(--seda);
-    padding: 2rem;
+    padding: 1rem;
     background-image: linear-gradient(to bottom, #b6b3b3d8, transparent 20%);
 }
 
@@ -120,20 +129,7 @@ h3 {
     color: var(--seda);
 }
 
-
-
 /*
-nejužší verze
-==============================
-- všechno je pod sebou v jedné úzké nudli
-- v menu jsou položky pod sebou, menu samotné je nad obsahem
-- v galerii jsou všechny obrázky pod sebou
-- popisky k obrázkům jsou vždy pod obrázkem (k těm v textu i k těm v galerii)
-*/
-
-
-/*
-breakpointy odvoď podle citu:
 střední šířka okna
 =======================================
 - skoro všechno je pod sebou
@@ -142,6 +138,13 @@ střední šířka okna
 - popisky k obrázkům v textu jsou uvnitř obrázku blízko k jeho pravému dolnímu rohu
 - popisky k obrázkům v galerii jsou skryté a vyjíždějí při najetí myši
 */
+
+@media screen and (min-width: 450px) {
+div {
+    max-width: 900px;
+}
+}
+
 /*
 breakpointy odvoď podle citu:
 nejširší obrazovky
