@@ -7,12 +7,7 @@ html { box-sizing: border-box; }
     --seda: #797676;
 }
 /*
-nejužší verze
-==============================
-- všechno je pod sebou v jedné úzké nudli
-- v menu jsou položky pod sebou, menu samotné je nad obsahem
-- v galerii jsou všechny obrázky pod sebou
-- popisky k obrázkům jsou vždy pod obrázkem (k těm v textu i k těm v galerii)
+cudlik na back hore
 */
 
 body {
@@ -22,7 +17,7 @@ body {
     margin: auto;
     background-color: black;
 }
-div {
+.page {
     margin: auto;
     background-color: var(--pozadi);
 }
@@ -36,7 +31,7 @@ h1 {
     color: var(--pozadi);
     text-align: center;
     background-image: 
-        linear-gradient(hsla(240 70% 30% / 0.2),hsla(40 50% 20% / 0.5)),
+        linear-gradient(hsla(240 70% 30% / 0.2),hsla(200 50% 20% / 0.5)),
         url(images/island-hlavicka.jpg);
     background-size: cover;
     padding: 2rem;
@@ -64,7 +59,7 @@ ul {
 
 li {
     padding: 0.5rem;
-    border-bottom: solid 1px #ebe7e7;;
+    border-bottom: solid 1px #ebe7e7;
     font-family: 'Raleway', sans-serif; 
     font-size: .85rem;
 }
@@ -103,6 +98,7 @@ h3 {
     margin-top: 1.8rem;
 }
 
+.sign_text,
 .img_sign {
     text-align: center;
     margin: 0 0 0.5rem 0;
@@ -110,12 +106,13 @@ h3 {
     color: var(--seda);
 }
 
+.sign_text a,
 .img_sign a {
     color: var(--seda)
 }
 
-.img {
-    width: auto;
+img {
+    width: 100%;
 }
 
 .footer {
@@ -130,30 +127,57 @@ h3 {
 }
 
 /*
-střední šířka okna
-=======================================
-- skoro všechno je pod sebou
-- v menu jsou položky vedle sebe, menu samotné je nad obsahem
-- v galerii jsou vždy 2 obrázky vedle sebe (obrázků je 9, vhodně vyřeš zobrazení lichého na konci)
-- popisky k obrázkům v textu jsou uvnitř obrázku blízko k jeho pravému dolnímu rohu
 - popisky k obrázkům v galerii jsou skryté a vyjíždějí při najetí myši
+-- polopruhledny spodny pruh + popis a autor v barve pozadi
+--slight zoom in
 */
 
 @media screen and (min-width: 450px) {
-div {
-    max-width: 900px;
-}
-}
+    div {
+        max-width: 900px;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    ul {
+        display: inline-flex;
+        
+    }
+    li {
+        border: solid 1px #ebe7e7;
+        padding: 0.5rem 3rem;    
+    }    
+    .sign_text {
+        color: var(--pozadi);
+        text-align: right;
+        padding-right: 1rem;
+        position: relative;
+        top: -40px;        
+    }
+    .sign_text a {
+        color: var(--pozadi);
+    }
+    .galery {
+        display: flex;
+        flex-flow: row wrap; 
+    }    
+    .fotoAndTitle {
+        width: 50%;
+        transform: scale(1,1) 
+    }
+        
+    .gal_title {
+        background-color: hsla(0 50% 70% / 0.2);
+        padding: 2rem;
+        margin-top: -8rem;;    
+    }
+    .gal_title h3,
+    .img_sign,
+    .img_sign a {
+        color: var(--pozadi)
+    } 
 
-/*
-breakpointy odvoď podle citu:
-nejširší obrazovky
-=======================================
-- hlavička s obrázkem na pozadí je přes celou šířku stránky
-- maximální šířka stránky je 960 px
-- v menu jsou položky pod sebou, menu je omezené na úzký proužek a je vlevo od úvodního odstavce textu
-- jednotlivé "sekce" se střídají: jednou vpravo a pak zase vlevo, aby web vypadal vizuálně zajímavě
-- v galerii jsou vždy 3 obrázky vedle sebe
-- popisky k obrázkům v textu jsou stejné jako pro střední šířky (uvnitř obrázku)
-- popisky k obrázkům v galerii jsou stejné jako střední šířky (skryté + stejný efekt)
-*/
+    .fotoAndTitle:hover{
+        transform:scale(1.3) 
+    }
+}
