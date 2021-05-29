@@ -31,7 +31,7 @@ h1 {
     color: var(--pozadi);
     text-align: center;
     background-image: 
-        linear-gradient(hsla(240 70% 30% / 0.2),hsla(200 50% 20% / 0.5)),
+        linear-gradient(hsla(240 70% 30% / 0.2),hsla(10 10% 10% / 0.4)),
         url(images/island-hlavicka.jpg);
     background-size: cover;
     padding: 2rem;
@@ -133,9 +133,6 @@ img {
 */
 
 @media screen and (min-width: 450px) {
-    div {
-        max-width: 900px;
-    }
     h1 {
         font-size: 4rem;
     }
@@ -159,25 +156,114 @@ img {
     }
     .galery {
         display: flex;
-        flex-flow: row wrap; 
+        flex-flow: row wrap
     }    
     .fotoAndTitle {
         width: 50%;
-        transform: scale(1,1) 
-    }
-        
+        transform: scale(1,1);        
+    }        
     .gal_title {
-        background-color: hsla(0 50% 70% / 0.2);
+        background-color: hsla(0 0% 0% / 0.4);
         padding: 2rem;
-        margin-top: -8rem;;    
+        margin-top: -8rem;
+        transform: scale(0,0)
     }
     .gal_title h3,
     .img_sign,
     .img_sign a {
         color: var(--pozadi)
-    } 
-
-    .fotoAndTitle:hover{
+    }   
+    .fotoAndTitle:hover {
         transform:scale(1.3) 
     }
-}
+    .fotoAndTitle:hover .gal_title {
+        transform: scale(1,1);
+    }
+    /*ease out in*/
+    /*
+    .fotoAndTitle:hover .gal_title{
+        animation-name: title;
+        animation-duration: 3s;
+        animation-iteration-count: 2;
+        animation-direction: alternate;  
+    }      
+    @keyframes title {
+        from {transform: scale(0,0)};
+        /*25% {transform: scale(0.5,1)};
+        50% {transform: scale(0.0,1)};
+        75% {transform: scale(-0.5,0.9);}
+        to {transform: scale(1,1)};
+    }*/
+}   
+
+
+    /*
+    - jednotlivé "sekce" se střídají: jednou vpravo a pak zase vlevo, aby web vypadal vizuálně zajímavě
+    */
+    @media screen and (min-width: 900px) {
+        .page {
+            max-width: 960px;
+        }
+        h1 {
+            font-size: 5rem;
+        }
+        .autor {
+            font-size: 1rem;
+        }
+        
+        .hlavicka {
+            padding:5rem 7rem;
+        }
+
+        .sections {
+            width: 780px;
+            margin: auto;
+            margin-top: -4rem;
+            padding-top: .5em;
+            background-color: var(--pozadi);
+            box-shadow: 10px 10px 50px 5px hsla(0 0% 0% / 0.4)
+        }
+        .menu {
+            display: flex;
+        }
+        ul {
+            display: inline;
+            padding: 0 2rem;
+        }
+        li {
+            text-align: left;
+            font-size: 0.8rem;
+            padding: 0.5rem;
+            width: 150px;
+            border: none;
+            border-bottom: solid 1px #ebe7e7;
+        }        
+        .menu_uvod {
+            display: flex;
+            margin-top: 2rem;
+        }
+        .gal_title h3,
+        .img_sign,
+        .img_sign a {
+            font-size: 0.6rem;
+        }
+        
+        .co h2, 
+        .co hr, 
+        .co p {
+            margin-left: 10rem;
+        }
+        
+        .gal_title {
+            padding: 0.5rem;
+            margin-top: -5rem;
+        }
+        .fotoAndTitle {
+            width: calc(100% / 3);
+        }
+        .footer {
+            background-image: none;
+            padding-left: 3.7rem;
+        }
+
+    }
