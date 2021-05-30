@@ -156,51 +156,53 @@ img {
     }
     .galery {
         display: flex;
-        flex-flow: row wrap
+        flex-flow: row wrap;
+        
     }    
     .fotoAndTitle {
+        
         width: 50%;
-        transform: scale(1,1);        
-    }        
+        transform: scale(1,1);   
+        overflow: hidden; 
+        
+    }   
+
     .gal_title {
         background-color: hsla(0 0% 0% / 0.4);
         padding: 2rem;
         margin-top: -8rem;
-        transform: scale(0,0)
+        transform: scale(0,0);    
     }
     .gal_title h3,
     .img_sign,
     .img_sign a {
         color: var(--pozadi)
-    }   
-    .fotoAndTitle:hover {
-        transform:scale(1.3) 
+    }      
+    .foto {
+        display: flex;
+        overflow: hidden;
+    } 
+    .foto:hover {
+        transform:scale(1.5);
+        
     }
     .fotoAndTitle:hover .gal_title {
-        transform: scale(1,1);
+        transform: translateY(25%); /*cim vetsi, tim nizsi*/
     }
-    /*ease out in*/
-    /*
+    
     .fotoAndTitle:hover .gal_title{
         animation-name: title;
         animation-duration: 3s;
         animation-iteration-count: 2;
         animation-direction: alternate;  
-    }      
+    }
     @keyframes title {
-        from {transform: scale(0,0)};
-        /*25% {transform: scale(0.5,1)};
-        50% {transform: scale(0.0,1)};
-        75% {transform: scale(-0.5,0.9);}
-        to {transform: scale(1,1)};
-    }*/
-}   
+        from {transform: translateY(100%)};
+        to {transform: translateY(0)};
+    }
+}
 
-
-    /*
-    - jednotlivé "sekce" se střídají: jednou vpravo a pak zase vlevo, aby web vypadal vizuálně zajímavě
-    */
-    @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
         .page {
             max-width: 960px;
         }
@@ -266,4 +268,4 @@ img {
             padding-left: 3.7rem;
         }
 
-    }
+}
